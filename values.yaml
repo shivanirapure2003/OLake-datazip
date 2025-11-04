@@ -1,0 +1,24 @@
+# Custom values.yaml for OLake Helm deployment (edited for assignment)
+# NOTE: this file contains a placeholder {{VM_IP}} which will be replaced on the VM by the setup script.
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  hosts:
+    - host: "{{VM_IP}}"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ui:
+  service:
+    port: 8000
+
+# Additional common settings (examples):
+replicaCount: 1
+
+resources: {}
